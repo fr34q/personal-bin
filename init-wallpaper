@@ -1,0 +1,19 @@
+#!/bin/sh
+
+FOLDER="/home/rgebauer/Bilder/wallpapers"
+
+cd "$FOLDER"
+FILE=`find . -type f | shuf -n 1`
+
+FILEPATH="$FOLDER/$FILE"
+
+echo "Selected: $FILEPATH"
+
+# Sets the latest generated wallpaper and calculates a new one for next time
+betterlockscreen -w dimblur -u "$FILEPATH"
+
+if [ ! `pgrep compton` ]; then
+  echo "Starting compton"
+  sleep 1
+  compton -b
+fi

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+betterlockscreen --lock &
+
+# sleep 1 adds a small delay to prevent possible race conditions with suspend
+sleep 1
+
+exit 0
