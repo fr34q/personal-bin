@@ -1,0 +1,8 @@
+#!/bin/sh
+SDR_YOCTO_DIR=$HOME/phd/projects/sdr_yocto 
+
+#if [ -z "$STY" ]; then exec screen -d -R yocto /bin/sh "$0"; fi
+
+cd $SDR_YOCTO_DIR
+source setupsdk
+kitty

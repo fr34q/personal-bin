@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ ! $# -eq 1 ]; then
+	echo "Establish a port forwarding from a slotX-platform to localhost via SSH."
+	echo
+	echo "Usage: forward-platform <PLATFORM NUMBER>"
+	exit 1
+fi
+
+echo "Establishing connection to slot$@-platform"
+ssh -N rgebauer@ipesdr-dev.ipe.kit.edu -L 50058:slot$@-platform:50058

@@ -1,0 +1,5 @@
+#!/bin/sh
+export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab 
+
+cd $HOME/phd/notebooks
+jupyter lab .

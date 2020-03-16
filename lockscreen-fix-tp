@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/home/rgebauer/bin/lockscreen-with-hooks $@ &
+/home/rgebauer/bin/lockscreen-with-hooks fix-tp &
 
 # sleep 1 adds a small delay to prevent possible race conditions with suspend
 sleep 1

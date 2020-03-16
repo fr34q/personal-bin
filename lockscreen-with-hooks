@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Here can be a pre hook
+
+# The lock screen
+multilockscreen --lock
+
+# Here can be a post hook
+if [[ "$@" == "fix-tp" ]]; then
+  # Fix Trackpoint -> is in sudoers file (no passwd)
+  echo "Apply fix for trackpoint problems after suspend..."
+  sudo fix-trackpoint-on-resume
+fi
+
+exit 0

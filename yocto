@@ -1,0 +1,4 @@
+#!/bin/sh
+SDR_YOCTO_DIR="$HOME/phd/projects/sdr_yocto"
+
+screen -d -R yocto sh -c "cd \"$SDR_YOCTO_DIR\"; . ./setupsdk; exec zsh"

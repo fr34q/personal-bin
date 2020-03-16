@@ -6,14 +6,21 @@ cd "$FOLDER"
 FILE=`find . -type f | shuf -n 1`
 
 FILEPATH="$FOLDER/$FILE"
+DESCRIPTION=$(echo "$FILEPATH" | pcregrep -o1 -e '\/([^\/_]+)_' |  sed 's/[A-Z]/ &/g' | sed 's/^ //g' | sed -r 's/([^-]+)- (.+)$/\1 (in \2)/g')
+# DESCRIPTION="Type password to unlock..."
 
 echo "Selected: $FILEPATH"
+echo "Description: $DESCRIPTION"
 
 # Sets the latest generated wallpaper and calculates a new one for next time
-betterlockscreen -w dimblur -u "$FILEPATH"
+multilockscreen --fx dimblur -u "$FILEPATH" --desc "$DESCRIPTION"
+# Update wallpaper
+multilockscreen -w dimblur
 
 if [ ! `pgrep compton` ]; then
   echo "Starting compton"
   sleep 1
   compton -b
 fi
+
+# conky -d

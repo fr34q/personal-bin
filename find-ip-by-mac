@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ ! $# -eq 2 ]; then
+	echo "Uses NMAP to find an IP to a given MAC address."
+	echo
+	echo "Usage: forward-platform <SUBNET> <MAC ADDRESS>"
+	exit 1
+fi
+
+sudo nmap -p22 "$1" | grep -B 5 -i "$2"

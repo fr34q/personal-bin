@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Test every 10mins if the backup server is available before starting the backup
+until ping -c1 ipesdr-backup.ipe.kit.edu >/dev/null 2>&1; do sleep 10m; done
+
+# Actually perform the backup
+sudo borgmatic
